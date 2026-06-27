@@ -1,226 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18278709652"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18278709652');
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BionicRead — Read Any Article Faster | Free Chrome Extension</title>
-    <meta
-      name="description"
-      content="BionicRead — free Chrome extension for bionic reading. Read articles 2x faster with less eye strain. Built for ADHD, UPSC/NEET students, and online readers."
-    />
-    <link rel="canonical" href="https://bionicread.vercel.app/" />
-    <meta property="og:title" content="BionicRead — Read Faster on Any Page" />
-    <meta property="og:description" content="One-click bionic reading for any webpage. Free Chrome extension. ADHD-friendly." />
-    <meta property="og:type" content="website" />
-    <style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #0b1020;
-        color: #e2e8f0;
-        line-height: 1.6;
-      }
-      .wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
-      .badge {
-        display: inline-block;
-        background: #1e293b;
-        border: 1px solid #334155;
-        color: #94a3b8;
-        font-size: 0.8rem;
-        padding: 6px 12px;
-        border-radius: 999px;
-        margin-bottom: 20px;
-      }
-      h1 {
-        font-size: clamp(2rem, 5vw, 2.75rem);
-        line-height: 1.15;
-        color: #fff;
-        margin-bottom: 16px;
-      }
-      h1 span { color: #818cf8; }
-      .sub {
-        font-size: 1.1rem;
-        color: #94a3b8;
-        margin-bottom: 32px;
-        max-width: 560px;
-      }
-      .cta {
-        display: inline-block;
-        background: linear-gradient(135deg, #6366f1, #8b5cf6);
-        color: #fff;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 1.1rem;
-        padding: 16px 32px;
-        border-radius: 12px;
-        margin-bottom: 12px;
-        transition: transform 0.15s, opacity 0.15s;
-      }
-      .cta:hover { transform: translateY(-2px); opacity: 0.95; }
-      .cta-note { font-size: 0.85rem; color: #64748b; margin-bottom: 40px; }
-      .demo {
-        background: #1e293b;
-        border: 1px solid #334155;
-        border-radius: 16px;
-        padding: 24px;
-        margin-bottom: 40px;
-      }
-      .demo-label {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: #64748b;
-        margin-bottom: 12px;
-      }
-      .before, .after { margin-bottom: 16px; }
-      .before p, .after p { font-size: 0.95rem; line-height: 1.7; }
-      .before .tag { color: #f87171; font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; }
-      .after .tag { color: #34d399; font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; }
-      .after .bold { font-weight: 700; }
-      .after .rest { opacity: 0.8; }
-      .features {
-        display: grid;
-        gap: 12px;
-        margin-bottom: 40px;
-      }
-      .feat {
-        background: #131a2e;
-        border: 1px solid #1e293b;
-        border-radius: 10px;
-        padding: 14px 16px;
-        font-size: 0.95rem;
-      }
-      .feat strong { color: #c7d2fe; }
-      .audience {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 40px;
-      }
-      .pill {
-        background: #1e1b4b;
-        color: #a5b4fc;
-        border: 1px solid #3730a3;
-        padding: 6px 14px;
-        border-radius: 999px;
-        font-size: 0.8rem;
-      }
-      .trust { font-size: 0.85rem; color: #64748b; margin-bottom: 24px; }
-      footer {
-        margin-top: 48px;
-        padding-top: 24px;
-        border-top: 1px solid #1e293b;
-        font-size: 0.8rem;
-        color: #475569;
-      }
-      footer a { color: #818cf8; }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <div class="badge">Free Chrome Extension · Launch offer — unlimited free use</div>
-      <h1>Read any article <span>2x faster</span></h1>
-      <p class="sub">
-        <strong>BionicRead</strong> bolds the start of each word on any webpage — your brain reads faster, your eyes tire less.
-        Built for ADHD, students (UPSC, NEET, CA), and anyone drowning in online articles.
-      </p>
-
-      <a
-        id="installBtn"
-        class="cta"
-        href="https://chromewebstore.google.com/detail/bionicread-%E2%80%94-read-faster/dcbcoigmnpinomaciejlmgoicnpipkpk"
-        target="_blank"
-        rel="noopener"
-      >
-        Add to Chrome — It's Free
-      </a>
-      <p class="cta-note">Alt+B to toggle · Adjustable intensity · 100% private — runs in your browser</p>
-
-      <div class="demo">
-        <div class="demo-label">How it works</div>
-        <div class="before">
-          <div class="tag">Normal reading</div>
-          <p>Scientists have discovered that highlighting the first letters of words can help the brain process text more efficiently during long reading sessions.</p>
-        </div>
-        <div class="after">
-          <div class="tag">BionicRead enabled</div>
-          <p>
-            <span class="bold">Sci</span><span class="rest">entists</span>
-            <span class="bold">ha</span><span class="rest">ve</span>
-            <span class="bold">dis</span><span class="rest">covered</span>
-            <span class="bold">th</span><span class="rest">at</span>
-            <span class="bold">hig</span><span class="rest">hlighting</span>
-            <span class="bold">th</span><span class="rest">e</span>
-            <span class="bold">fir</span><span class="rest">st</span>
-            <span class="bold">let</span><span class="rest">ters</span>
-            <span class="bold">of</span>
-            <span class="bold">wor</span><span class="rest">ds</span>
-            <span class="bold">he</span><span class="rest">lps</span>
-            <span class="bold">yo</span><span class="rest">ur</span>
-            <span class="bold">bra</span><span class="rest">in</span>
-            <span class="bold">re</span><span class="rest">ad</span>
-            <span class="bold">fas</span><span class="rest">ter.</span>
-          </p>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BionicRead — Read Any Webpage 2x Faster | Bionic Reading Chrome Extension</title>
+  <meta name="description" content="BionicRead transforms any webpage into bionic reading mode. Bold word starts help you read faster. Free Chrome extension for students & professionals in India. Pro ₹149 lifetime." />
+  <meta name="keywords" content="bionic reading, bionic reading chrome extension, read faster, speed reading, ADHD reading tool, bionic reading india" />
+  <meta property="og:title" content="BionicRead — Read 2x Faster on Any Page" />
+  <meta property="og:description" content="Free bionic reading Chrome extension. Transform any article, PDF, or webpage instantly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bionicread.vercel.app" />
+  <link rel="canonical" href="https://bionicread.vercel.app/" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google tag (gtag.js) — Google Ads conversion -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18278709652"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18278709652');
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">⚡ BionicRead</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#help">Help</a>
+        <a href="https://chrome.google.com/webstore" class="btn btn-sm" id="chromeLink" target="_blank" rel="noopener">Add to Chrome — Free</a>
       </div>
-
-      <div class="features">
-        <div class="feat"><strong>One-click toggle</strong> — any webpage instantly</div>
-        <div class="feat"><strong>Alt+B shortcut</strong> — toggle without touching mouse</div>
-        <div class="feat"><strong>Adjustable intensity</strong> — 30% to 60% bold</div>
-        <div class="feat"><strong>Privacy-first</strong> — nothing leaves your browser</div>
-      </div>
-
-      <div class="audience">
-        <span class="pill">ADHD</span>
-        <span class="pill">UPSC / NEET</span>
-        <span class="pill">Students</span>
-        <span class="pill">Researchers</span>
-        <span class="pill">News readers</span>
-        <span class="pill">Professionals</span>
-      </div>
-
-      <p class="trust">
-        Independent project. Not affiliated with Bionic Reading®.<br />
-        Support: <a href="mailto:abhishekrana254@gmail.com">abhishekrana254@gmail.com</a> ·
-        <a href="privacy.html">Privacy Policy</a>
-      </p>
-
-      <a
-        class="cta"
-        href="https://chromewebstore.google.com/detail/bionicread-%E2%80%94-read-faster/dcbcoigmnpinomaciejlmgoicnpipkpk"
-        target="_blank"
-        rel="noopener"
-      >
-        Install BionicRead Free
-      </a>
-
-      <footer>
-        <p>BionicRead · <a href="https://chromewebstore.google.com/detail/bionicread-%E2%80%94-read-faster/dcbcoigmnpinomaciejlmgoicnpipkpk">Chrome Web Store</a></p>
-      </footer>
     </div>
+  </nav>
 
-    <script>
-      const STORE =
-        "https://chromewebstore.google.com/detail/bionicread-%E2%80%94-read-faster/dcbcoigmnpinomaciejlmgoicnpipkpk";
-      document.querySelectorAll(".cta").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (typeof gtag === "function") {
-            gtag("event", "install_click", {
-              event_category: "conversion",
-              event_label: "chrome_store",
-            });
-          }
-        });
-      });
-    </script>
-  </body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">🇮🇳 Made for Indian readers</span>
+        <h1>Read any webpage <span class="gradient">2x faster</span> with bionic bolding</h1>
+        <p class="lead">BionicRead bolds the start of every word so your brain reads faster while your eyes glide through the rest. Works on articles, blogs, PDFs, and study material.</p>
+        <div class="hero-cta">
+          <a href="https://chrome.google.com/webstore" class="btn btn-primary" id="heroChromeBtn" target="_blank" rel="noopener">Install Free Extension</a>
+          <a href="pricing.html" class="btn btn-outline">Pro — ₹149 lifetime</a>
+        </div>
+        <p class="micro">Free unlimited during launch · No account needed · Alt+B to toggle</p>
+      </div>
+      <div class="demo-card">
+        <div class="demo-label">Before → After</div>
+        <p class="demo-normal">Reading long articles online is slow and tiring for your eyes and brain.</p>
+        <p class="demo-bionic"><span class="b">Rea</span>ding <span class="b">lo</span>ng <span class="b">arti</span>cles <span class="b">on</span>line <span class="b">is</span> <span class="b">sl</span>ow <span class="b">and</span> <span class="b">tir</span>ing <span class="b">for</span> <span class="b">yo</span>ur <span class="b">ey</span>es <span class="b">and</span> <span class="b">bra</span>in.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Why BionicRead?</h2>
+      <div class="grid-3">
+        <div class="card"><div class="icon">⚡</div><h3>Instant toggle</h3><p>One click or Alt+B on any webpage. No copy-paste needed.</p></div>
+        <div class="card"><div class="icon">🎯</div><h3>Adjust intensity</h3><p>Control how much of each word is bolded — 30% to 60%.</p></div>
+        <div class="card"><div class="icon">📚</div><h3>Perfect for study</h3><p>UPSC, NEET, CA, coding docs — read more in less time.</p></div>
+        <div class="card"><div class="icon">🧠</div><h3>ADHD-friendly</h3><p>Bionic bolding helps focus on long text without losing place.</p></div>
+        <div class="card"><div class="icon">🇮🇳</div><h3>India pricing</h3><p>Pro is ₹149 one-time — not $9/month like foreign tools.</p></div>
+        <div class="card"><div class="icon">🔒</div><h3>Privacy first</h3><p>Works locally in your browser. We don't read your pages.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="section alt">
+    <div class="container">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>Install</strong> BionicRead from Chrome Web Store (free)</li>
+        <li><strong>Open</strong> any article, blog, or study page</li>
+        <li><strong>Toggle</strong> bionic mode from the extension popup or press Alt+B</li>
+        <li><strong>Read faster</strong> — bold word starts guide your eyes automatically</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="help" class="section">
+    <div class="container">
+      <h2>Help & FAQ</h2>
+      <details><summary>How do I activate Pro after purchase?</summary><p>After payment you'll get a license key by email. Open the extension → "Already purchased?" → enter key + email → Activate.</p></details>
+      <details><summary>Does it work on all websites?</summary><p>Yes on most text-heavy pages. It skips code blocks, inputs, and editable areas.</p></details>
+      <details><summary>What's the free limit?</summary><p>5 pages per day with bionic mode. Pro removes the limit forever.</p></details>
+      <details><summary>Keyboard shortcut?</summary><p>Alt+B toggles bionic mode on the current tab.</p></details>
+      <details><summary>Contact support?</summary><p>Email: abhishekrana254@gmail.com</p></details>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 BionicRead</span>
+      <div>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+</body>
 </html>

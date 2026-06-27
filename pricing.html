@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BionicRead Pro — ₹149 Lifetime | Unlimited Bionic Reading</title>
+  <meta name="description" content="Upgrade to BionicRead Pro for unlimited bionic reading on every webpage. One-time ₹149 payment. No subscription." />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18278709652"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18278709652');
+  </script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">⚡ BionicRead</a>
+      <a href="index.html" class="btn btn-sm btn-outline">← Back</a>
+    </div>
+  </nav>
+
+  <section class="section pricing-hero">
+    <div class="container pricing-grid">
+      <div class="price-card">
+        <h1>BionicRead Pro</h1>
+        <div class="price">₹149 <span>one-time · lifetime</span></div>
+        <ul class="price-features">
+          <li>✅ Unlimited pages per day</li>
+          <li>✅ Custom intensity settings</li>
+          <li>✅ Priority support</li>
+          <li>✅ All future updates included</li>
+          <li>✅ License for 1 browser profile</li>
+        </ul>
+        <form id="checkoutForm" class="checkout-form">
+          <label>Email (for license key)</label>
+          <input type="email" id="email" required placeholder="you@email.com" />
+          <button type="submit" class="btn btn-primary btn-block" id="payBtn">Pay ₹149 — Get License Key</button>
+        </form>
+        <p class="micro">Secure payment via Razorpay · UPI, cards, netbanking</p>
+        <p id="payError" class="error hidden"></p>
+      </div>
+
+      <div class="compare-card">
+        <h2>Free vs Pro</h2>
+        <table class="compare-table">
+          <tr><th>Feature</th><th>Free</th><th>Pro</th></tr>
+          <tr><td>Pages per day</td><td>5</td><td>Unlimited</td></tr>
+          <tr><td>Intensity control</td><td>✅</td><td>✅</td></tr>
+          <tr><td>Alt+B shortcut</td><td>✅</td><td>✅</td></tr>
+          <tr><td>Future updates</td><td>✅</td><td>✅</td></tr>
+          <tr><td>Support</td><td>Community</td><td>Priority</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="successSection" style="display:none">
+    <div class="container">
+      <div class="success-box">
+        <h2>🎉 Payment successful!</h2>
+        <p>Your license key:</p>
+        <code id="licenseDisplay"></code>
+        <p>Copy this key → Open BionicRead extension → "Already purchased?" → Activate</p>
+        <a href="index.html#help" class="btn btn-primary">Activation guide</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 BionicRead</span>
+      <div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="pricing.js"></script>
+</body>
+</html>

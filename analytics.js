@@ -102,5 +102,5 @@ window.SITE_CONFIG = {
   adsScript.src = `https://www.googletagmanager.com/gtag/js?id=${cfg.ADS_ID}`;
   document.head.appendChild(adsScript);
   gtag("js", new Date());
-  gtag("config", cfg.ADS_ID);
+  gtag("config", cfg.ADS_ID, { send_page_view: false });
 })();

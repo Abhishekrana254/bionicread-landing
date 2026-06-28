@@ -19,7 +19,9 @@
     function gtag(){dataLayer.push(arguments);}
     window.gtag = gtag;
     gtag("js", new Date());
-    gtag("config", "G-6JGEF80W2X", { send_page_view: true, allow_google_signals: true });
+    const ga4Config = { send_page_view: true, allow_google_signals: true };
+    if (location.search.includes("debug=1")) ga4Config.debug_mode = true;
+    gtag("config", "G-6JGEF80W2X", ga4Config);
     gtag("config", "AW-18278709652");
   </script>
   <script src="analytics.js"></script>

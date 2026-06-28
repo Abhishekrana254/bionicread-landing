@@ -14,15 +14,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll("#chromeLink, #heroChromeBtn").forEach((el) => {
-    el.addEventListener("click", () => {
-      if (typeof gtag !== "function") return;
-      if (SITE_CONFIG.STORE_CLICK_CONVERSION) {
-        gtag("event", "conversion", { send_to: SITE_CONFIG.STORE_CLICK_CONVERSION });
-      }
+    el.addEventListener("click", (e) => {
+      const url = SITE_CONFIG.CHROME_STORE_URL;
+      if (!url) return;
+
+      if (typeof gtag !== "function" || !SITE_CONFIG.STORE_CLICK_CONVERSION) return;
+
+      e.preventDefault();
+      let navigated = false;
+      const go = () => {
+        if (navigated) return;
+        navigated = true;
+        window.location.href = url;
+      };
+
+      gtag("event", "conversion", {
+        send_to: SITE_CONFIG.STORE_CLICK_CONVERSION,
+        event_callback: go,
+      });
       gtag("event", "install_click", {
         event_category: "conversion",
         event_label: "chrome_store",
       });
+      setTimeout(go, 1000);
     });
   });
 });

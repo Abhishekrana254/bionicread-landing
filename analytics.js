@@ -5,7 +5,7 @@ window.SITE_CONFIG = {
     "https://chromewebstore.google.com/detail/bionicread-%E2%80%94-read-faster/dcbcoigmnpinomaciejlmgoicnpipkpk",
   SUPPORT_EMAIL: "abhishekrana254@gmail.com",
   ADS_ID: "AW-18278709652",
-  GA4_MEASUREMENT_ID: "",
+  GA4_MEASUREMENT_ID: "G-6JGEF80W2X",
   STORE_CLICK_CONVERSION: "AW-18278709652/JjMaCL6yhsccEJTz-4tE",
 };
 

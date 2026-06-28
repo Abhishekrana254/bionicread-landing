@@ -49,7 +49,10 @@ document.getElementById("checkoutForm").addEventListener("submit", async (e) => 
           document.querySelector(".pricing-grid").style.display = "none";
           document.getElementById("successSection").style.display = "block";
           document.getElementById("licenseDisplay").textContent = data.licenseKey;
-          if (typeof gtag === "function") gtag("event", "purchase", { value: 149, currency: "INR" });
+          if (typeof gtag === "function") {
+            gtag("event", "purchase", { value: 149, currency: "INR", send_to: SITE_CONFIG.ADS_ID });
+          }
+          trackGa4("purchase", { value: 149, currency: "INR" });
         } else {
           throw new Error("Payment verification failed");
         }

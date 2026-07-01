@@ -6,13 +6,14 @@ window.SITE_CONFIG = {
   SUPPORT_EMAIL: "abhishekrana254@gmail.com",
   ADS_ID: "AW-18278709652",
   GA4_MEASUREMENT_ID: "G-6JGEF80W2X",
+  /** Admin → Data streams → Web → Measurement Protocol API secrets */
+  GA4_API_SECRET: "R1TbZbPvQASMJ2tMEhFTUw",
   STORE_CLICK_CONVERSION: "AW-18278709652/JjMaCL6yhsccEJTz-4tE",
 };
 
 (function initAnalytics() {
   const cfg = window.SITE_CONFIG;
   const tid = cfg.GA4_MEASUREMENT_ID;
-  const debug = location.search.includes("debug=1");
 
   function storeGet(key) {
     try {
@@ -53,31 +54,36 @@ window.SITE_CONFIG = {
   }
 
   function sendGa4(eventName, params) {
-    if (!tid) return;
-    const body = new URLSearchParams({
-      v: "2",
-      tid,
-      cid: clientId(),
-      en: eventName,
-      dl: location.href,
-      dr: document.referrer || "",
-      dt: document.title || "",
-      sid: sessionId(),
-      sct: "1",
-      seg: "1",
-    });
-    if (debug) body.set("_dbg", "1");
+    const secret = cfg.GA4_API_SECRET;
+    if (!tid || !secret || secret.includes("PASTE_")) return;
+
+    const eventParams = {
+      session_id: sessionId(),
+      engagement_time_msec: 100,
+      page_location: location.href,
+      page_title: document.title || "",
+    };
     if (params) {
       for (const [key, value] of Object.entries(params)) {
-        body.set(key.startsWith("ep.") ? key : `ep.${key}`, String(value));
+        eventParams[key] = value;
       }
     }
-    const url = "https://www.google-analytics.com/g/collect";
+
+    const payload = JSON.stringify({
+      client_id: clientId(),
+      events: [{ name: eventName, params: eventParams }],
+    });
+    const url = `https://www.google-analytics.com/mp/collect?measurement_id=${tid}&api_secret=${secret}`;
     if (navigator.sendBeacon) {
-      navigator.sendBeacon(url, body);
+      navigator.sendBeacon(url, payload);
       return;
     }
-    fetch(url, { method: "POST", body, keepalive: true, mode: "no-cors" }).catch(() => {});
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true,
+    }).catch(() => {});
   }
 
   window.trackGa4 = sendGa4;
